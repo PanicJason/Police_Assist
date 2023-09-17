@@ -1,1 +1,1 @@
-web: python flask_test.py
+web: python Hololens_test/flask_test.py
