@@ -59,8 +59,7 @@
                 .then(response => response.json())
                 .then(data => {
                     let output = '';
-                    data = JSON.parse(data);
-                    data.forEach(row => {
+                    Array.from(data).forEach(row => {
                         output += JSON.stringify(row) + '<br>';
                     });
                     resultDiv.innerHTML = output;
