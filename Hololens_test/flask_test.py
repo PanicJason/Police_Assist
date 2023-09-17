@@ -36,9 +36,13 @@ def upload_image():
 
 @app.route('/get_filtered_result', methods=['POST'])
 def get_filtered_result():
-    file_name = request.form.get('file_name')
-    data = db_connection.get_data_from_assist_test(file_name)
-    return jsonify(data)
+    try:
+        file_name = request.form.get('file_name')
+        data = db_connection.get_data_from_assist_test(file_name)
+        return jsonify(data)
+    except Exception as e:
+        print(e)
+        return jsonify({'error': 'An error occurred'}), 500
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
