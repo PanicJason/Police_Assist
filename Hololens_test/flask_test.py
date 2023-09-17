@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import base64
 import db_connection
+import os
 
 app = Flask(__name__)
 
@@ -39,5 +40,6 @@ def get_filtered_result():
     data = db_connection.get_data_from_assist_test(file_name)
     return jsonify(data)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
