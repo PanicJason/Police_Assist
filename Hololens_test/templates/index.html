@@ -49,7 +49,7 @@
                 const file1 = inputElement.files[0];
                 let fileNameWithoutExtension = file1 ? file1.name.replace(/\.[^/.]+$/, "") : "";
 
-                // db_connection.py의 결과값을 필터링하여 가져옵니다.
+                // db_connection.py의 결과값을 flask에서 필터링하여 가져옴
                 fetch('/get_filtered_result', {
                     method: 'POST',
                     headers: {
