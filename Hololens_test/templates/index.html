@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Police_Assist</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
     <!-- title -->
@@ -60,7 +61,12 @@
                 .then(data => {
                     let output = '';
                     Array.from(data).forEach(row => {
-                        output += JSON.stringify(row) + '<br>';
+                        output += `이름: ${row.name}<br>
+                                    성별: ${row.gender}<br>
+                                    나이: ${row.age}<br>
+                                    주소: ${row.address}<br>
+                                    전화번호: ${row.tel}<br>
+                                    `;
                     });
                     resultDiv.innerHTML = output;
                 })
